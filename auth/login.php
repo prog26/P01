@@ -1,5 +1,6 @@
 <?php include '../includes/header.php'; ?>
 
+
 <div class="auth-container">
     <h2>Connexion</h2>
     <?php if(isset($_GET['error'])): ?>

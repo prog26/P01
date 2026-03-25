@@ -1,6 +1,17 @@
 <?php 
 
 
+
+require_once '../includes/auth.php';
+
+
+// ✔️ Autoriser developer ET admin
+if ($_SESSION['role'] !== 'developer' && $_SESSION['role'] !== 'admin') {
+    header("Location: /Prompt-Repository/auth/login.php");
+    exit();
+}
+
+
 require_once '../includes/auth.php';
 confirm_logged_in();
 require_once '../config/db.php';

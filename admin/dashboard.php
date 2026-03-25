@@ -1,4 +1,15 @@
 <?php 
+
+require_once '../includes/auth.php';
+
+// ❌ Bloque si ce n’est pas admin
+if ($_SESSION['role'] !== 'admin') {
+    header("Location: /Prompt-Repository/auth/login.php");
+    exit();
+}
+
+
+
 require_once '../includes/auth.php';
 confirm_admin();
 require_once '../config/db.php';
