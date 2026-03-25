@@ -1,28 +1,43 @@
-<?php 
+<?php
 require_once '../includes/auth.php';
 confirm_admin();
 require_once '../config/db.php';
 include '../includes/header.php';
 
-$categories = $pdo->query("SELECT * FROM categories")->fetchAll();
+// Récupérer toutes les catégories
+$categories = $pdo->query("SELECT * FROM categories ORDER BY name ASC")->fetchAll();
 ?>
 
-<h2>Gestion des Catégories</h2>
+<div class="container">
+    <div class="dashboard-header">
+        <h2>📂 Gestion des Catégories</h2>
+        <a href="add_category.php" class="btn btn-main">＋ Ajouter une catégorie</a>
+    </div>
 
-<form action="../controllers/categoryController.php" method="POST" style="margin-bottom: 20px;">
-    <input type="text" name="name" placeholder="Nom de la catégorie (ex: DevOps)" required>
-    <button type="submit" name="add_category">Ajouter</button>
-</form>
-
-<table>
-    <tr><th>ID</th><th>Nom</th><th>Actions</th></tr>
-    <?php foreach($categories as $c): ?>
-        <tr>
-            <td><?= $c['id'] ?></td>
-            <td><?= htmlspecialchars($c['name']) ?></td>
-            <td><a href="edit_category.php?id=<?= $c['id'] ?>">Modifier</a></td>
-        </tr>
-    <?php endforeach; ?>
-</table>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom de la catégorie</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($categories as $cat): ?>
+                <tr>
+                    <td><?= $cat['id'] ?></td>
+                    <td><strong><?= htmlspecialchars($cat['name']) ?></strong></td>
+                    <td>
+                        <a href="delete_category.php?id=<?= $cat['id'] ?>" 
+                           class="btn btn-danger" 
+                           onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ?')">
+                           Supprimer
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
 
 <?php include '../includes/footer.php'; ?>
