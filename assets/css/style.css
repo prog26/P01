@@ -1,0 +1,251 @@
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* BODY STRUCTURE */
+body{
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    background:#f4f7fb;
+}
+
+/* MAIN prend tout l’espace */
+main{
+    flex:1;
+    padding:40px;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    background:#1e293b;
+    padding:15px 40px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* MENU */
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+    align-items:center;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#cbd5e1;
+    position:relative;
+    transition:0.3s;
+}
+
+/* HOVER ANIMATION */
+nav ul li a::after{
+    content:"";
+    position:absolute;
+    width:0%;
+    height:2px;
+    background:#3b82f6;
+    left:0;
+    bottom:-5px;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:white;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+/* ADMIN */
+.admin-link{
+    color:#facc15 !important;
+    font-weight:bold;
+}
+
+/* BUTTONS */
+nav ul li a[href*="login"],
+nav ul li a[href*="register"]{
+    background:#3b82f6;
+    color:white;
+    padding:8px 18px;
+    border-radius:20px;
+}
+
+nav ul li a[href*="login"]:hover,
+nav ul li a[href*="register"]:hover{
+    background:#2563eb;
+}
+
+/* LOGOUT */
+nav ul li a[href*="logout"]{
+    background:#ef4444;
+    color:white;
+    padding:8px 18px;
+    border-radius:20px;
+}
+
+nav ul li a[href*="logout"]:hover{
+    background:#dc2626;
+}
+
+/* ================= AUTH (LOGIN + REGISTER) ================= */
+
+.auth-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    margin-top:40px;
+}
+
+/* CARD */
+.auth-container form{
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    width:350px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.auth-container h2{
+    margin-bottom:20px;
+    color:#1e293b;
+    text-align:center;
+}
+
+/* INPUT */
+.auth-container input{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    outline:none;
+    transition:0.3s;
+}
+
+.auth-container input:focus{
+    border-color:#3b82f6;
+    box-shadow:0 0 5px rgba(59,130,246,0.3);
+}
+
+/* BUTTON LOGIN */
+.auth-container button{
+    width:100%;
+    padding:12px;
+    background:#3b82f6;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.auth-container button:hover{
+    background:#2563eb;
+}
+
+/* LINK */
+.auth-container a{
+    color:#3b82f6;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.auth-container a:hover{
+    text-decoration:underline;
+}
+
+/* TEXT */
+.auth-container p{
+    margin-top:15px;
+    font-size:14px;
+    text-align:center;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#1e293b;
+    color:#cbd5e1;
+    padding:25px 20px;
+}
+
+/* FOOTER CONTENT */
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.footer-logo{
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.footer-links{
+    display:flex;
+    gap:20px;
+}
+
+.footer-links a{
+    text-decoration:none;
+    color:#cbd5e1;
+    transition:0.3s;
+}
+
+.footer-links a:hover{
+    color:white;
+}
+
+/* COPYRIGHT */
+.footer-bottom{
+    text-align:center;
+    margin-top:15px;
+    border-top:1px solid #334155;
+    padding-top:10px;
+    font-size:14px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        flex-direction:column;
+    }
+
+    .footer-container{
+        flex-direction:column;
+        text-align:center;
+    }
+}

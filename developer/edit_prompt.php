@@ -21,6 +21,76 @@ if ($prompt['user_id'] != $_SESSION['user_id'] && $_SESSION['role'] !== 'admin')
 $categories = $pdo->query("SELECT * FROM categories")->fetchAll();
 include '../includes/header.php';
 ?>
+<style>
+
+/* TITLE */
+h2{
+    text-align:center;
+    margin-top:40px;
+    margin-bottom:20px;
+    color:#1e293b;
+}
+
+/* FORM CONTAINER */
+form{
+    max-width:500px;
+    margin:0 auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+/* INPUT + SELECT + TEXTAREA */
+form input,
+form select,
+form textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:14px;
+    outline:none;
+    transition:0.3s;
+}
+
+/* FOCUS EFFECT */
+form input:focus,
+form select:focus,
+form textarea:focus{
+    border-color:#3b82f6;
+    box-shadow:0 0 5px rgba(59,130,246,0.3);
+}
+
+/* TEXTAREA */
+form textarea{
+    resize:none;
+}
+
+/* BUTTON */
+form button{
+    background:linear-gradient(135deg,#3b82f6,#2563eb);
+    color:white;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+/* HOVER BUTTON */
+form button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+</style>
+
 
 <h2>Modifier le Prompt</h2>
 <form action="../controllers/promptController.php" method="POST">

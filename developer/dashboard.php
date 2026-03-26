@@ -17,6 +17,10 @@ confirm_logged_in();
 require_once '../config/db.php';
 include '../includes/header.php';
 
+
+
+
+
 // 1. Récupération de l'ID de catégorie depuis l'URL (si le filtre est utilisé)
 $category_filter = isset($_GET['category_id']) ? intval($_GET['category_id']) : 0;
 
@@ -43,6 +47,117 @@ $prompts = $stmt->fetchAll();
 // 3. Récupération de toutes les catégories pour remplir le menu déroulant du filtre
 $categories = $pdo->query("SELECT * FROM categories ORDER BY name ASC")->fetchAll();
 ?>
+<style>
+
+/* HEADER */
+.dashboard-header{
+    margin-bottom:30px !important;
+}
+
+.dashboard-header h2{
+    font-size:24px;
+    color:#1e293b;
+}
+
+/* BUTTON */
+.btn-main{
+    background:linear-gradient(135deg,#10b981,#059669) !important;
+    color:white !important;
+    padding:10px 18px !important;
+    border-radius:8px !important;
+    text-decoration:none !important;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn-main:hover{
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* FILTER */
+.filter-box{
+    background:white !important;
+    border-radius:12px !important;
+    padding:15px 20px !important;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.filter-box select{
+    padding:8px 12px !important;
+    border-radius:6px !important;
+    border:1px solid #ddd !important;
+}
+
+/* GRID */
+.prompt-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+/* CARD */
+.prompt-card{
+    background:white !important;
+    border:none !important;
+    padding:20px !important;
+    border-radius:12px !important;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.prompt-card:hover{
+    transform:translateY(-5px);
+}
+
+/* BADGE */
+.badge{
+    background:#3b82f6 !important;
+    padding:5px 12px !important;
+    border-radius:20px !important;
+    font-size:12px !important;
+}
+
+/* TITLE */
+.prompt-card h3{
+    margin:10px 0;
+    color:#1e293b;
+}
+
+/* CONTENT */
+.content-box{
+    background:#f8fafc !important;
+    border-radius:8px !important;
+    padding:12px !important;
+    font-size:14px;
+    color:#334155;
+}
+
+/* ACTIONS */
+.actions a{
+    text-decoration:none;
+    font-size:14px;
+    color:#3b82f6;
+    margin-right:10px;
+}
+
+.actions a:hover{
+    text-decoration:underline;
+}
+
+/* DELETE */
+.actions a[onclick]{
+    color:#ef4444 !important;
+}
+
+/* EMPTY */
+.prompt-grid p{
+    text-align:center;
+    color:#64748b;
+}
+
+</style>
+
 
 <div class="dashboard-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
     <h2>📚 Bibliothèque des Prompts</h2>
