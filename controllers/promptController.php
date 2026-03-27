@@ -54,7 +54,13 @@ if (isset($_POST['edit_prompt'])) {
     ]);
 
     // Redirection vers la page d'édition avec le message de succès (comme demandé)
-    header("Location: ../developer/edit_prompt.php?id=$id&msg=success");
+    //header("Location: ../developer/edit_prompt.php?id=$id&msg=success");
+    // 🔥 REDIRECTION APRÈS UPDATE
+    if ($_SESSION['role'] === 'admin') {
+        header("Location: /Prompt-Repository/admin/dashboard.php");
+    } else {
+        header("Location: /Prompt-Repository/developer/dashboard.php");
+    }
     exit();
 }
 

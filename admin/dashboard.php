@@ -47,7 +47,7 @@ $promptCount = $pdo->query("SELECT COUNT(*) FROM prompts")->fetchColumn();
 
     <!-- GESTION -->
     <div class="admin-section">
-        <h3>Gestion</h3>
+        <h3 class="admin-links">Gestion</h3>
         <div class="admin-links">
             <a href="manage_categories.php" class="btn btn-category">📁 Catégories</a>
             <a href="manage_users.php"       class="btn btn-users">👥 Utilisateurs</a>
