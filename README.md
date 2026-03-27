@@ -94,7 +94,7 @@ Prompt-Repository/
 
 ## 🗄️ Base de données
 
-Le fichier `database/database.sql` contient :
+Le fichier `database/prompt.sql` contient :
 
 * Table **users** → utilisateurs + rôles
 * Table **categories** → catégories
@@ -115,7 +115,7 @@ git clone https://github.com/your-repo/prompt-repository.git
 ### 2️⃣ Importer la base de données
 
 * Ouvrir **phpMyAdmin**
-* Créer une base : `prompt_repository`
+* Créer une base : `prompt`
 * Importer le fichier :
 
 ```plaintext
@@ -190,4 +190,3 @@ Prompt Repository est une application complète qui démontre :
 * sécurité basique
 * interface moderne
 
-👉 Projet idéal pour portfolio 💼
