@@ -1,4 +1,21 @@
 <?php
+session_start();
+
+
+
+/* 🔐 Bloquer cache navigateur */
+header("Cache-Control: no-cache, no-store, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+
+
+// ❌ Pas connecté → login
+if (!isset($_SESSION['user_id'])) {
+    header("Location: /auth/login.php");
+    exit();
+}
+
 // On démarre la session une seule fois ici pour tout le projet
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
