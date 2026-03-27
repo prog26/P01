@@ -51,7 +51,7 @@ Prompt-Repository/
 │   └── db.php                    # 🔌 Connexion PDO à la base
 │
 ├── database/
-│   └── database.sql             # 🗄️ Script SQL (tables + données)
+│   └── prompt.sql             # 🗄️ Script SQL (tables + données)
 │
 ├── includes/
 │   ├── header.php               # 🔝 Header dynamique (navbar)
@@ -176,7 +176,7 @@ http://localhost/Prompt-Repository/
 
 ## 👨‍💻 Auteur
 
-Projet réalisé par Hassan AFTAH dans le cadre d’apprentissage du développement web (PHP / MySQL / MVC).
+Projet réalisé par **Hassan AFTAH** dans le cadre d’apprentissage du développement web (PHP / MySQL / MVC).
 
 ---
 
