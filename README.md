@@ -20,18 +20,64 @@ Le projet inclut un système d’authentification sécurisé avec gestion des r�
 
 ---
 
+## 🔐 Compte de test (Admin)
+
+👉 Vous pouvez utiliser ce compte pour tester :
+
+```plaintext
+Email : admin@devgenius.com
+Mot de passe : admin123
+```
+
+⚠️ **Important** : changer le mot de passe après connexion pour plus de sécurité.
+
+---
+
+## 🖼️ Aperçu de l'application
+
+### 🔐 Page de connexion
+
+<p align="center">
+  <img src="screenshots/login.png" width="600">
+</p>
+
+---
+
+### 👑 Dashboard Admin
+
+<p align="center">
+  <img src="screenshots/dashboard-admin.png" width="600">
+</p>
+
+---
+
+### 👨‍💻 Dashboard Developer
+
+<p align="center">
+  <img src="screenshots/dashboard-user.png" width="600">
+</p>
+
+---
+
 ## 🔁 Fonctionnement global
 
 1. L’utilisateur accède à l’application (`index.php`)
+
 2. Il est redirigé vers la page de connexion
+
 3. Il entre ses identifiants
+
 4. Le système vérifie les informations (via `authController.php`)
+
 5. Une session est créée
+
 6. Redirection selon le rôle :
 
    * Admin → `admin/dashboard.php`
    * Developer → `developer/dashboard.php`
+
 7. L’utilisateur peut effectuer des actions (CRUD)
+
 8. Déconnexion → destruction de la session
 
 ---
@@ -51,41 +97,41 @@ Prompt-Repository/
 │   └── db.php                    # 🔌 Connexion PDO à la base
 │
 ├── database/
-│   └── prompt.sql             # 🗄️ Script SQL (tables + données)
+│   └── prompt.sql               # 🗄️ Script SQL
 │
 ├── includes/
-│   ├── header.php               # 🔝 Header dynamique (navbar)
+│   ├── header.php               # 🔝 Header dynamique
 │   ├── footer.php               # 🔻 Footer
-│   └── auth.php                 # 🔐 Sécurité (sessions + rôles)
+│   └── auth.php                 # 🔐 Sécurité
 │
 ├── auth/                        # 🔐 Authentification
-│   ├── login.php                # Connexion
-│   ├── register.php             # Inscription
-│   └── logout.php               # Déconnexion
+│   ├── login.php
+│   ├── register.php
+│   └── logout.php
 │
-├── developer/                   # 👨‍💻 Partie Developer
-│   ├── dashboard.php           # Tableau de bord
-│   ├── add_prompt.php          # Ajouter un prompt
-│   ├── edit_prompt.php         # Modifier un prompt
-│   ├── delete_prompt.php       # Supprimer un prompt
-│   └── list_prompts.php        # Liste des prompts
+├── developer/                   # 👨‍💻 Developer
+│   ├── dashboard.php
+│   ├── add_prompt.php
+│   ├── edit_prompt.php
+│   ├── delete_prompt.php
+│   └── list_prompts.php
 │
-├── admin/                       # 👑 Partie Admin
-│   ├── dashboard.php           # Dashboard admin (stats)
-│   ├── manage_categories.php   # Voir catégories
-│   ├── add_category.php        # Ajouter catégorie
-│   ├── edit_category.php       # Modifier catégorie
-│   ├── delete_category.php     # Supprimer catégorie
-│   └── manage_users.php        # Gestion utilisateurs
+├── admin/                       # 👑 Admin
+│   ├── dashboard.php
+│   ├── manage_categories.php
+│   ├── add_category.php
+│   ├── edit_category.php
+│   ├── delete_category.php
+│   └── manage_users.php
 │
-├── controllers/                # ⚙️ Logique métier (CRUD)
-│   ├── authController.php      # Login / Register
-│   ├── promptController.php    # CRUD prompts
-│   ├── categoryController.php  # CRUD catégories
-│   └── userController.php      # Gestion users
+├── controllers/                # ⚙️ Logique
+│   ├── authController.php
+│   ├── promptController.php
+│   ├── categoryController.php
+│   └── userController.php
 │
-├── index.php                   # 🚪 Point d’entrée (redirection)
-├── create_admin.php           # 👑 Création admin (optionnel)
+├── index.php                   # 🚪 Entrée
+├── create_admin.php            # 👑 Création admin
 │
 └── README.md                  # 📘 Documentation
 ```
@@ -98,7 +144,7 @@ Le fichier `database/prompt.sql` contient :
 
 * Table **users** → utilisateurs + rôles
 * Table **categories** → catégories
-* Table **prompts** → prompts liés aux utilisateurs
+* Table **prompts** → prompts
 
 ---
 
@@ -107,7 +153,7 @@ Le fichier `database/prompt.sql` contient :
 ### 1️⃣ Cloner le projet
 
 ```bash
-git clone https://github.com/your-repo/prompt-repository.git
+git clone https://github.com/prog26/Prompt_Repository_.git
 ```
 
 ---
@@ -116,17 +162,15 @@ git clone https://github.com/your-repo/prompt-repository.git
 
 * Ouvrir **phpMyAdmin**
 * Créer une base : `prompt`
-* Importer le fichier :
+* Importer :
 
 ```plaintext
-database/database.sql
+database/prompt.sql
 ```
 
 ---
 
 ### 3️⃣ Configurer la connexion
-
-Modifier :
 
 📄 `config/db.php`
 
@@ -151,42 +195,43 @@ http://localhost/Prompt-Repository/
 
 * Sessions PHP (`$_SESSION`)
 * Protection des pages (`auth.php`)
-* Vérification des rôles (admin / developer)
-* Hachage des mots de passe (`password_hash`)
+* Vérification des rôles
+* Hachage des mots de passe
 
 ---
 
 ## 🎨 Design
 
-* Un seul fichier CSS global (`style.css`)
-* Design moderne type SaaS
-* Responsive (mobile friendly)
+* Un seul fichier CSS global
+* Interface moderne (style SaaS)
+* Responsive
 
 ---
 
 ## 🚀 Améliorations possibles
 
-* 🔔 Notifications (success / error)
+* 🔔 Notifications
 * 🌙 Mode sombre
-* 📊 Graphiques statistiques
-* ❤️ Système de favoris
-* 🔍 Recherche avancée
+* 📊 Statistiques graphiques
+* ❤️ Favoris
+* 🔍 Recherche
 
 ---
 
 ## 👨‍💻 Auteur
 
-Projet réalisé par **Hassan AFTAH** dans le cadre d’apprentissage du développement web (PHP / MySQL / MVC).
+Projet réalisé par **Hassan AFTAH** dans le cadre d’apprentissage du développement web.
 
 ---
 
 ## 🏆 Conclusion
 
-Prompt Repository est une application complète qui démontre :
+Ce projet démontre :
 
-* gestion des utilisateurs
-* CRUD complet
-* architecture claire
-* sécurité basique
-* interface moderne
+✔️ Authentification sécurisée
+✔️ Gestion des rôles
+✔️ CRUD complet
+✔️ Architecture propre
+✔️ Interface moderne
+
 
