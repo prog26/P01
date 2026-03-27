@@ -15,6 +15,15 @@ include '../includes/header.php';
 // Statistiques
 $userCount   = $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
 $promptCount = $pdo->query("SELECT COUNT(*) FROM prompts")->fetchColumn();
+$bestUser = $pdo->query("
+    SELECT users.username, COUNT(prompts.id) AS total
+    FROM prompts
+    JOIN users ON prompts.user_id = users.id
+    GROUP BY users.id
+    ORDER BY total DESC
+    LIMIT 1
+")->fetch();
+
 ?>
 
 <div class="dashboard-container">
@@ -41,6 +50,20 @@ $promptCount = $pdo->query("SELECT COUNT(*) FROM prompts")->fetchColumn();
             <div class="progress-bar">
                 <div class="progress-fill"></div>
             </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-title">Top Developer</div>
+
+            <div class="stat-value">
+                <?= $bestUser ? htmlspecialchars($bestUser['username']) : 'Aucun' ?>
+            </div>
+
+            <small>
+                <?= $bestUser ? $bestUser['total'] . ' prompts' : '' ?>
+            </small>
+
+        
         </div>
 
     </div>
