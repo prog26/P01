@@ -37,25 +37,24 @@ Mot de passe : admin123
 
 ### 🔐 Page de connexion
 
-<p align="center">
-  <img src="screenshots/login.png" width="600">
-</p>
+<img width="1918" height="912" alt="image" src="https://github.com/user-attachments/assets/3138d89a-d8e3-4939-a047-c566d473e186" />
+
 
 ---
 
 ### 👑 Dashboard Admin
+<img width="1918" height="921" alt="image" src="https://github.com/user-attachments/assets/0485d16d-0111-4701-aedd-710062424001" />
 
-<p align="center">
-  <img src="screenshots/dashboard-admin.png" width="600">
-</p>
+
+
+
 
 ---
 
 ### 👨‍💻 Dashboard Developer
 
-<p align="center">
-  <img src="screenshots/dashboard-user.png" width="600">
-</p>
+<img width="1918" height="917" alt="image" src="https://github.com/user-attachments/assets/ea0aee9b-3063-485b-b261-ae6ef36dd7e2" />
+
 
 ---
 
