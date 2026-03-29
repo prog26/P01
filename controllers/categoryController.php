@@ -15,3 +15,12 @@ if (isset($_POST['add_category'])) {
     header('Location: ../admin/manage_categories.php');
     exit();
 }
+// Modifier une catégorie
+if (isset($_POST['edit_category'])) {
+    $id   = (int) $_POST['id'];
+    $name = htmlspecialchars($_POST['name']);
+    $stmt = $pdo->prepare("UPDATE categories SET name = ? WHERE id = ?");
+    $stmt->execute([$name, $id]);
+    header('Location: ../admin/manage_categories.php');
+    exit();
+}

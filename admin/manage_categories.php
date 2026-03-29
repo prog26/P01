@@ -36,6 +36,9 @@ $categories = $pdo->query("SELECT * FROM categories ORDER BY name ASC")->fetchAl
                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ?')">
                            Supprimer
                         </a>
+                        <a href="edit_category.php?id=<?= $cat['id'] ?>" class="btn btn-danger" >
+                         Modifier
+                        </a>
                     </td>
                 </tr>
             <?php endforeach; ?>
