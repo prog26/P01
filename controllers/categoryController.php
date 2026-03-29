@@ -15,7 +15,7 @@ if (isset($_POST['add_category'])) {
     header('Location: ../admin/manage_categories.php');
     exit();
 }
-// Modifier une catégorie
+//--- Modifier une catégorie
 if (isset($_POST['edit_category'])) {
     $id   = (int) $_POST['id'];
     $name = htmlspecialchars($_POST['name']);
