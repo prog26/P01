@@ -23,6 +23,18 @@ $bestUser = $pdo->query("
     ORDER BY total DESC
     LIMIT 1
 ")->fetch();
+//categorie qui est beaucoup des prompt
+$stmt = $pdo->query("
+    SELECT categories.name, COUNT(prompts.id) AS total_prompts
+    FROM categories
+    JOIN prompts ON prompts.category_id = categories.id
+    GROUP BY categories.id
+    ORDER BY total_prompts DESC
+    LIMIT 1
+");
+
+$topCategory = $stmt->fetch();
+
 
 ?>
 
@@ -64,6 +76,22 @@ $bestUser = $pdo->query("
             </small>
 
         
+        </div>
+
+        <div  class="stat-card">
+            <div class="stat-title">
+                <h3>
+                     Catégorie la plus utilisée :     
+                </h3>
+            </div>
+            <div class="stat-value">
+                 <?= $topCategory['name'] ?>
+            </div>
+
+            <p>
+                    Nombre de prompts : <?= $topCategory['total_prompts'] ?>
+            </p>
+
         </div>
 
     </div>

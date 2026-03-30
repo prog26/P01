@@ -2,7 +2,6 @@
 session_start();
 
 
-
 /* 🔐 Bloquer cache navigateur */
 header("Cache-Control: no-cache, no-store, must-revalidate");
 header("Pragma: no-cache");
@@ -16,10 +15,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-// On démarre la session une seule fois ici pour tout le projet
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+
 
 /**
  * Vérifie si l'utilisateur est connecté.
