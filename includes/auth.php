@@ -11,7 +11,7 @@ header("Expires: 0");
 
 // ❌ Pas connecté → login
 if (!isset($_SESSION['user_id'])) {
-    header("Location: /auth/login.php");
+    header("Location: /Prompt-Repository/auth/login.php");
     exit();
 }
 

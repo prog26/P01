@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db  = 'prompt';
+$db  = 'prompt_repository';
 $user = 'root';
 $pass = '';
 
